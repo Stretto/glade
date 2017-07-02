@@ -30,6 +30,7 @@
 #include "glade-resources.h"
 #include "glade-preferences.h"
 #include "glade-registration.h"
+#include "glade-intro.h"
 
 #include <gladeui/glade.h>
 #include <gladeui/glade-popup.h>
@@ -126,6 +127,8 @@ struct _GladeWindowPrivate
   GtkWidget *open_button_box;   /* gtk_button_box_set_layout() set homogeneous to TRUE, and we do not want that in this case  */
 
   GtkWidget *registration;      /* Registration and user survey dialog */
+  
+  GladeIntro *intro;
   
   GdkRectangle position;
 };
@@ -2377,6 +2380,13 @@ glade_window_init (GladeWindow *window)
   priv->registration = glade_registration_new ();
 }
 
+static gboolean
+glade_intro_start (gpointer data)
+{
+  glade_intro_play (data);
+  return G_SOURCE_REMOVE;
+}
+
 static void
 glade_window_constructed (GObject *object)
 {
@@ -2453,6 +2463,34 @@ glade_window_constructed (GObject *object)
     gtkosx_application_ready (theApp);
   }
 #endif
+
+  priv->intro = glade_intro_new (GTK_WINDOW (window));
+
+  glade_intro_script_add (priv->intro, "open-button",
+                          "Start by opening a Glade project", 4);
+  glade_intro_script_add (priv->intro, "recent-button",
+                          "or a recent one here!", 3);
+  glade_intro_script_add (priv->intro, "undo-button",
+                          "Undo", 2);
+  glade_intro_script_add (priv->intro, "redo-button",
+                          "and redo button also moved from the toolbar to the headerbar", 6);
+
+  glade_intro_script_add (priv->intro, "adaptor-search-button",
+                          "Search for any object class supported by Glade", 5);
+  glade_intro_script_add (priv->intro, "adaptor-gtk-buttonbox",
+                          "This button box breaks Gtk catalog in groups", 4);
+  glade_intro_script_add (priv->intro, "adaptor-extra-button",
+                          "Extra Gtk groups and deprecated classes", 4);
+  glade_intro_script_add (priv->intro, "adaptor-others-button",
+                          "others catalogs classes will be listed here", 5);
+
+  glade_intro_script_add (priv->intro, "save-button",
+                          "save button for easy access", 3);
+  glade_intro_script_add (priv->intro, "menu-button",
+                          "the rest of the menubar action are here", 5);
+
+  /* FIXME: find a better place */
+  g_timeout_add_seconds (2, glade_intro_start, priv->intro);
 }
 
 static void

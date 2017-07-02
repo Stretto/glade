@@ -60,3 +60,24 @@ GladeDesignView * {
   margin: 0;
   padding: 0;
 }
+
+/* GladeIntro */
+
+popover.glade-intro {
+  padding: 1em;
+}
+
+popover.glade-intro label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@keyframes widget-highlight {
+  from { box-shadow: 0px 0px 10px @theme_selected_bg_color, inset 0px 0px 4px  @theme_selected_bg_color; }
+  to   { box-shadow: 0px 0px 4px  @theme_selected_bg_color, inset 0px 0px 10px @theme_selected_bg_color; }
+}
+
+.glade-intro-highlight,
+buttonbox.glade-intro-highlight > button {
+  animation: widget-highlight 1s infinite alternate;
+}

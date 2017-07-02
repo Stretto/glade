@@ -436,6 +436,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkStack" id="inspectors_stack">
+                    <property name="name">inspector</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">3</property>
@@ -538,6 +539,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GladeAdaptorChooser" id="adaptor_chooser">
+                        <property name="name">adaptor-chooser</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="border_width">2</property>
@@ -608,6 +610,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
         </child>
         <child>
           <object class="GladeEditor" id="editor">
+            <property name="name">editor</property>
             <property name="width_request">256</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -636,6 +639,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
                 <property name="label" translatable="yes">Open</property>
                 <property name="use_action_appearance">True</property>
                 <property name="related_action">open_action</property>
+                <property name="name">open-button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -651,6 +655,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
             </child>
             <child>
               <object class="GtkMenuButton" id="recent_menu_button">
+                <property name="name">recent-button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -680,6 +685,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
           <object class="GtkButton">
             <property name="use_action_appearance">False</property>
             <property name="related_action">new_action</property>
+            <property name="name">new-button</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -713,6 +719,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
             <child>
               <object class="GtkMenuButton">
                 <property name="related_action">undo_action</property>
+                <property name="name">undo-button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -765,6 +772,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
             <child>
               <object class="GtkMenuButton">
                 <property name="related_action">redo_action</property>
+                <property name="name">redo-button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -810,6 +818,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
         </child>
         <child type="title">
           <object class="GtkMenuButton" id="project_button">
+            <property name="name">project-button</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="receives_default">True</property>
@@ -860,6 +869,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
         </child>
         <child>
           <object class="GtkMenuButton">
+            <property name="name">menu-button</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -882,6 +892,7 @@ Andreas Nilsson &lt;andreas@andreasn.se&gt;</property>
             <property name="label" translatable="yes">button</property>
             <property name="use_action_appearance">True</property>
             <property name="related_action">save_action</property>
+            <property name="name">save-button</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
